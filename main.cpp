@@ -1,25 +1,33 @@
 #include <iostream>
 using namespace std;
-int main()
+int sqrt(int x)
 {
-    int i, n;
-    float arr[100];
-    cout << "Enter total number of elements: ";
-    cin >> n;
-    cout << endl;
-    
-    for(i = 0; i < n; ++i)
-    {
-       cout << "Enter Number " << i + 1 << " : ";
-       cin >> arr[i];
-    }
-    
-    for(i = 1;i < n; ++i)
-    {
-      
-       if(arr[0] < arr[i])
-           arr[0] = arr[i];
-    }
-    cout << "Largest element = " << arr[0];
-    return 0;
+	if(x==0 || x==1)
+		return x;
+		int start=1, end=x, mid, res;
+		while(start<=end)
+		{
+			mid=(start+end)/2;
+			if(mid*mid==x)
+				return mid;
+				if(mid*mid<x)
+					{
+					start=mid+1;
+					res=mid;
+					}
+				else
+				{
+					end=mid-1;
+				}
+		}
+		return res;
+}
+int main(int argc, char **argv)
+{
+	int x;
+	cout<< "etner value for x"<<"\n";
+	cin>>x;
+	cout<<sqrt(x)<<"\n";
+	return 0;
+	
 }
