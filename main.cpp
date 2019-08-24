@@ -1,33 +1,32 @@
 #include <iostream>
+
 using namespace std;
-int sqrt(int x)
+
+int main()
 {
-	if(x==0 || x==1)
-		return x;
-		int start=1, end=x, mid, res;
-		while(start<=end)
+	int *a=NULL,i,j,k,n,temp;
+	cout<<"Enter the no of elements:";
+	cin>>n;
+	cout<<"Enter the value of k:";
+	cin>>k;
+	a=new int[n];
+	cout<<"Enter the array elements:";
+	for(i=0;i<n;i++)
+		cin>>a[i];
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n-1;j++)
 		{
-			mid=(start+end)/2;
-			if(mid*mid==x)
-				return mid;
-				if(mid*mid<x)
-					{
-					start=mid+1;
-					res=mid;
-					}
-				else
-				{
-					end=mid-1;
-				}
+			if(a[j]<a[j+1])
+			{
+				temp=a[j+1];
+				a[j+1]=a[j];
+				a[j]=temp;
+			}
 		}
-		return res;
-}
-int main(int argc, char **argv)
-{
-	int x;
-	cout<< "etner value for x"<<"\n";
-	cin>>x;
-	cout<<sqrt(x)<<"\n";
-	return 0;
+	}
+	cout<<"The k largest elements are:";
+	for(i=0;i<k;i++)
+		cout<<a[i]<<" ";
 	
 }
